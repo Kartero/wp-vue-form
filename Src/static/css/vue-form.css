@@ -1,0 +1,21 @@
+.vue-form {
+    list-style-type: none;
+    margin: 2px 0;
+}
+
+.vue-form li {
+    color: white;
+    margin: 0;
+    border-color: white;
+    border-width: 1px;
+    border-style: solid;
+    padding: 2px 5px;
+}
+
+.vue-form-errors li {
+    background-color: lightsalmon;
+}
+
+.vue-form-success li {
+    background-color: lightgreen;
+}
