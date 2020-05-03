@@ -5,11 +5,15 @@ class Bootstrap
 {
     const SHORT_CODE = "vue_form"; 
 
+    /**
+     * @return void
+     */
     public function init()
     {
         $this->load();
         add_shortcode(self::SHORT_CODE, [$this, 'getForm']);
         $this->addEndpoints();
+        $this->runDb();
     }
 
     /**
@@ -57,5 +61,13 @@ class Bootstrap
     private function addEndpoints()
     {
         $formApi = new \App\FormApi();
+    }
+
+    /**
+     * @return void
+     */
+    private function runDb()
+    {
+        \App\Setup::execute();
     }
 }

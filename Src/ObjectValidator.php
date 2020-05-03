@@ -11,9 +11,13 @@ class ObjectValidator
     /** @var ValidationResult */
     private $validationResult;
 
+    /** @var FormDb */
+    private $formDb;
+
     public function __construct()
     {
         $this->validationResult = new ValidationResult();
+        $this->formDb = new FormDb();
     }
 
     /**
@@ -80,6 +84,11 @@ class ObjectValidator
     {
         if (!\filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $this->validationResult->addError("Tarkista sähköpostiosoite");
+        }
+
+        $result = $this->formDb->select('email', $email);
+        if ($result !== null) {
+            $this->validationResult->addError("Tällä sähköpostiosoitteella on jo rekisteröidytty");
         }
     }
 
