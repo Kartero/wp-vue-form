@@ -1,6 +1,9 @@
 # wp-vue-form
 Wordpress plugin - vue.js registration form.
 
+## Usage
+Embed "vue_form" shortcode to page or post.
+
 ## Registration form
 Tested with
 * WordPress 5.4.0
